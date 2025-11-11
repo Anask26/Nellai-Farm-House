@@ -35,9 +35,7 @@ body::before {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px 60px;
+  padding: 65px 80px 0 155px;
 }
 
 .task-bar-list {
@@ -48,7 +46,7 @@ body::before {
   backface-visibility: hidden;
   background-color: #c9ab8b42;
   color: black;
-  margin-top: 30px;
+  margin-top: 0;
   margin-left: 0;
   padding: 25px 55px;
   border-radius: 12px;
@@ -92,12 +90,11 @@ body::before {
 .task-bar-button {
   margin-right: 0;
   margin-top: 0;
-  margin-left: auto;
-  padding: 15px 32px;
+  padding: 15px 25px;
   border: none;
   border-radius: 36px;
-  font-size: 25px;
-  background-color: #ab6b2682;
+  font-size: 20px;
+  background-color: #c0670982;
   transition: all 0.3s ease;
 }
 .task-bar-button:hover {
@@ -360,7 +357,7 @@ body::before {
 .review-track {
   display: flex;
   gap: 30px;
-  animation: scrollReviews 25s linear infinite;
+  animation: scrollReviews 50s linear infinite;
 }
 
 .review-track img {
@@ -472,9 +469,28 @@ body::before {
 
 
 @media (max-width: 992px) {
-  .task-bar { flex-wrap: wrap; padding: 20px; }
-  .task-bar-list { margin: 20px auto 0; gap: 2rem; padding: 15px 25px; }
-  .task-bar-button { margin: 15px auto 0; font-size: 14px; }
+  .task-bar { 
+    flex-wrap: wrap; 
+    padding: 20px 15px; 
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+  }
+  .task-bar-list { 
+    margin: 0; 
+    gap: 1.5rem; 
+    padding: 15px 20px; 
+    font-size: 16px;
+    width: 100%;
+    justify-content: center;
+  }
+  .task-bar-button { 
+    margin: 0; 
+    font-size: 16px;
+    padding: 12px 20px;
+    width: auto;
+    align-self: center;
+  }
 
   .farm-name { font-size: clamp(48px, 10vw, 80px); }
   .farm-description { margin: 20px auto 80px; display: block; font-size: 22px; }
@@ -483,8 +499,26 @@ body::before {
 }
 
 @media (max-width: 576px) {
-  .task-bar-list { gap: 1rem; font-size: 16px; padding: 12px 20px; }
-  .task-bar-button { width: 100%; }
+  .task-bar { 
+    padding: 15px 10px; 
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .task-bar-list { 
+    gap: 0.8rem; 
+    font-size: 14px; 
+    padding: 12px 15px; 
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .task-bar-button { 
+    width: auto;
+    font-size: 14px;
+    padding: 10px 18px;
+    margin-top: 0;
+  }
 
   .title-home { font-size: 28px; }
   .home-img { width: 100%; height: auto; margin: 20px 0; }
