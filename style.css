@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Tinos", serif;
+  font-family: "Quicksand", sans-serif;
   text-decoration: none;
   list-style: none;
   scroll-behavior: smooth;
@@ -94,7 +94,7 @@ body::before {
   border: none;
   border-radius: 36px;
   font-size: 20px;
-  background-color: #c0670982;
+  background-color: #7b3f00f9;
   transition: all 0.3s ease;
 }
 .task-bar-button:hover {
@@ -103,8 +103,8 @@ body::before {
   cursor: pointer;
 }
 .farm-name {
-  font-family: "Special Gothic Expanded One", sans-serif;
-  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
   font-size: 100px;
   padding-top: 50px;
   text-align: center;
@@ -357,7 +357,7 @@ body::before {
 .review-track {
   display: flex;
   gap: 30px;
-  animation: scrollReviews 50s linear infinite;
+  animation: scrollReviews 10s linear infinite;
 }
 
 .review-track img {
@@ -451,6 +451,7 @@ body::before {
 .map-container {
   border-radius: 16px;
   overflow: hidden;
+  margin-bottom: 20px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 .directions-btn {
@@ -522,13 +523,13 @@ body::before {
   /* Faster review scroll on smaller screens */
 @media (max-width: 992px) {
   .review-track {
-    animation: scrollReviews 18s linear infinite;
+    animation: scrollReviews 10s linear infinite;
   }
 }
 
 @media (max-width: 576px) {
   .review-track {
-    animation: scrollReviews 12s linear infinite;
+    animation: scrollReviews 8s linear infinite;
   }
 }
 
