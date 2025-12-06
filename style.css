@@ -45,19 +45,22 @@ body::before {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  
+  margin-top: 30px;
 }
-
+.task-bar-list-1{
+  text-align: center;
+  margin-right: 0;
+  margin-left: 100px;
+}
 .task-bar-list {
   display: flex;
   flex-direction: row;
   list-style: none;
-  gap: 4em;
+  gap: 3em;
   backface-visibility: hidden;
   background-color: #c9ab8b42;
   color: black;
   margin-top: 10px;
-  
   padding: 25px 55px;
   border-radius: 12px;
   font-size: 20px;
@@ -114,8 +117,6 @@ body::before {
 
 /* ===== Book Now Button ===== */
 .task-bar-button {
-  margin-right: 0;
-  margin-top: 0;
   padding: 15px 25px;
   border: none;
   border-radius: 36px;
