@@ -20,6 +20,7 @@ body {
   color: #fff;
 }
 
+
 /* Soft overlay for better readability */
 body::before {
   content: "";
@@ -30,12 +31,29 @@ body::before {
 }
 
 /* ===== Navbar / Task Bar ===== */
+/* Transparent by default */
+.header-taskbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.logo-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  
+}
 .task-bar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 65px 80px 0 155px;
+  margin: 65px 80px 0 155px;
 }
 
 .task-bar-list {
@@ -46,20 +64,36 @@ body::before {
   backface-visibility: hidden;
   background-color: #c9ab8b42;
   color: black;
-  margin-top: 0;
+  margin-top: 10px;
   margin-left: 0;
   padding: 25px 55px;
   border-radius: 12px;
   font-size: 20px;
   transition: all 0.3s ease;
 }
-
 .list-1 {
   color: black;
   text-decoration: none;
   position: relative;
+  transition: color 0.2s ease;
 }
-
+/* Active link state */
+.list-1.active {
+  color: #ffffff;
+}
+.list-1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+.list-1.active::after {
+  width: 100%;
+}
 .list-1 img {
   width: 25px;
   height: 25px;
@@ -96,6 +130,7 @@ body::before {
   font-size: 20px;
   background-color: #7b3f00f9;
   transition: all 0.3s ease;
+  color: white;
 }
 .task-bar-button:hover {
   background-color: white;
@@ -137,6 +172,7 @@ body::before {
   background-color: #6b5b4cb6;
   border-radius: 12px;
   margin-bottom: 50px;
+  margin: 20px 30px;
 }
 .home-flex {
   display: flex;
@@ -156,7 +192,7 @@ body::before {
 }
 
 .home-img {
-  width: 580px;
+  width: 500px;
   height: 420px;
   margin: 20px 10px;
   border-radius: 12px;
@@ -164,6 +200,7 @@ body::before {
   box-shadow: 0 8px 24px rgba(0,0,0,0.25);
   transition: transform 0.4s ease;
   margin-right: 25px;
+  padding: 20px;
 }
 .home-img:hover {
   transform: scale(1.03);
@@ -198,7 +235,7 @@ body::before {
   padding: 60px 20px;
   border-radius: 16px;
   max-width: 1520px;
-  margin: auto;
+  margin: 20px 30px;
 }
 
 .gallery-title {
@@ -302,7 +339,7 @@ body::before {
 
 /* ===== Footer ===== */
 .about {
-  background: linear-gradient(180deg, #c16c1d 0%, #8b4a0e 100%);
+  background-color: black;
   color: white;
   text-align: center;
   padding: 40px 0;
@@ -331,13 +368,14 @@ body::before {
 
 .reviews {
   background: rgba(0, 0, 0, 0.6);
-  padding: 60px 20px;
   border-radius: 16px;
   max-width: 1520px;
-  margin: 80px auto;
+  margin:20px 30px;
   text-align: center;
   color: #fff;
   overflow: hidden;
+  padding: 40px;
+
 }
 
 .reviews h3 {
@@ -384,23 +422,6 @@ body::before {
 
 
 
-
-.reviews {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 40px;
-  border-radius: 16px;
-  margin: 40px auto;
-  max-width: 1520px;
-  text-align: center;
-  color: #fff;
-}
-
-.reviews h3 {
-  color: #ffad56;
-  font-size: 36px;
-  margin-bottom: 30px;
-}
-
 .review-container {
   display: flex;
   flex-wrap: wrap;
@@ -430,7 +451,7 @@ body::before {
   padding: 60px 20px;
   border-radius: 16px;
   max-width: 1520px;
-  margin: 80px auto;
+  margin: 20px 30px;
   color: #fff;
   text-align: center;
 }
@@ -508,7 +529,7 @@ body::before {
   }
   .task-bar-list { 
     gap: 0.8rem; 
-    font-size: 14px; 
+    font-size: 16px; 
     padding: 12px 15px; 
     width: 100%;
     flex-wrap: wrap;
@@ -529,7 +550,7 @@ body::before {
 
 @media (max-width: 576px) {
   .review-track {
-    animation: scrollReviews 8s linear infinite;
+    animation: scrollReviews 6s linear infinite;
   }
 }
 
