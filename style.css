@@ -19,8 +19,6 @@ body {
   font-family: "Tinos", serif;
   color: #fff;
 }
-
-
 /* Soft overlay for better readability */
 body::before {
   content: "";
@@ -50,7 +48,6 @@ body::before {
 .task-bar-list-1{
   text-align: center;
   margin-right: 0;
-  margin-left: 100px;
 }
 .task-bar-list {
   display: flex;
