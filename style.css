@@ -408,7 +408,6 @@ body::before {
   color: #fff;
   overflow: hidden;
   padding: 40px;
-
 }
 
 .reviews h3 {
@@ -419,8 +418,12 @@ body::before {
   text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
 }
 .sk-ww-google-reviews{
-  height: 450px;
+  height: 410px;
   width: 380px;
+}
+.review-1{
+  display: grid;
+  justify-content: center;
 }
 
 /* Animation for infinite scroll */
