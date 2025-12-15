@@ -41,12 +41,21 @@ body::before {
   z-index: 9999;
 }
 
+.lightbox.visible {
+  display: flex;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
 .lightbox-img {
   display: block;
-  max-width: 90vw;
-  max-height: 90vh;
+  max-width: 95vw;
+  max-height: 95vh;
   border-radius: 12px;
   object-fit: contain;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
 }
 
 /* Close button */
