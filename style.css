@@ -27,6 +27,49 @@ body::before {
   background: rgba(0,0,0,0.25);
   z-index: -1;
 }
+/* ===== Image Lightbox / Modal ===== */
+
+/* ===== Image Lightbox ===== */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;              /* hidden by default */
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+}
+
+.lightbox-img {
+  display: block;
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+/* Close button */
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 22px;
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Make it clear gallery items are clickable */
+.gallery-item {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
 
 /* ===== Navbar / Task Bar ===== */
 /* Transparent by default */
@@ -375,29 +418,8 @@ body::before {
   font-weight: bold;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
 }
-
-.review-slider {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.review-track {
-  display: flex;
-  gap: 30px;
-  animation: scrollReviews 10s linear infinite;
-}
-
-.review-track img {
-  width: 480px;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease;
-}
-
-.review-track img:hover {
-  transform: scale(1.05);
+.sk-ww-google-reviews{
+  height: 350px;
 }
 
 /* Animation for infinite scroll */
@@ -556,3 +578,7 @@ body::before {
   .reviews h3,
   .location-section h2 { font-size: 28px; }
 }
+
+
+
+

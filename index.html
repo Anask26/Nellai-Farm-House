@@ -248,21 +248,16 @@
 
   <section class="reviews" id="reviews" >
     <h3>What Our Visitors Say 🌟</h3>
-    <div class="review-container">
-      <div class="review-card">
-        <p>"A peaceful place surrounded by nature. Perfect for family gatherings!"</p>
-        <p class="reviewer">— Priya R.</p>
-      </div>
-      <div class="review-card">
-        <p>"Loved the hospitality and the view. Totally worth it!"</p>
-        <p class="reviewer">— Suresh K.</p>
-      </div>
-      <div class="review-card">
-        <p>"Clean, green, and calm. Can’t wait to visit again."</p>
-        <p class="reviewer">— Arjun P.</p>
-      </div>
-    </div>
+    
+      <div class='sk-ww-google-reviews' data-embed-id='25633504'></div><script src='https://widgets.sociablekit.com/google-reviews/widget.js' defer></script>
+    
   </section>
+
+
+  
+  
+  <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+
   
   <section id="location" class="location-section">
     <h2>Find Us 📍</h2>
@@ -308,13 +303,12 @@
 
 
 
-  <!--Java Script-->
-  <script>
-    const filterButtons = document.querySelectorAll('.filter-buttons button');
-    const galleryItems = document.querySelectorAll('.gallery-item');
-  
-    // 🔹 Initially show only Farm View images
-    window.addEventListener('DOMContentLoaded', () => {
+    <script>
+      // ===== Gallery Filter Logic =====
+      const filterButtons = document.querySelectorAll('.filter-buttons button');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+    
+      // Show only "Farm Views" on initial load
       galleryItems.forEach(item => {
         const category = item.getAttribute('data-category');
         if (category === 'views') {
@@ -323,29 +317,28 @@
           item.classList.add('hidden');
         }
       });
-    });
-  
-    // 🔹 Handle filter button clicks
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        document.querySelector('.filter-buttons button.active').classList.remove('active');
-        button.classList.add('active');
-  
-        const filterValue = button.getAttribute('data-filter');
-  
-        galleryItems.forEach(item => {
-          const category = item.getAttribute('data-category');
-          if (category === filterValue) {
-            item.classList.remove('hidden');
-          } else {
-            item.classList.add('hidden');
-          }
+    
+      // Handle filter button clicks
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const activeBtn = document.querySelector('.filter-buttons button.active');
+          if (activeBtn) activeBtn.classList.remove('active');
+          button.classList.add('active');
+    
+          const filterValue = button.getAttribute('data-filter');
+    
+          galleryItems.forEach(item => {
+            const category = item.getAttribute('data-category');
+            if (category === filterValue) {
+              item.classList.remove('hidden');
+            } else {
+              item.classList.add('hidden');
+            }
+          });
         });
       });
-    });
-  
     
-      // Smooth scroll for navbar links (Home, Gallery, Reviews, Location)
+      // ===== Smooth scroll for navbar links =====
       document.querySelectorAll('.task-bar-list a[href^="#"]').forEach(link => {
         link.addEventListener("click", function (e) {
           e.preventDefault();
@@ -355,8 +348,8 @@
           }
         });
       });
-  
-      // "Book Now" scrolls to Location section (you can change to WhatsApp later)
+    
+      // ===== "Book Now" scrolls to Location =====
       const bookNowBtn = document.getElementById("bookNowBtn");
       if (bookNowBtn) {
         bookNowBtn.addEventListener("click", () => {
@@ -366,12 +359,11 @@
           }
         });
       }
-  
-      // Highlight active nav link on scroll
+    
+      // ===== Highlight active nav link on scroll =====
       const navLinks = document.querySelectorAll(".task-bar-list a[href^='#']");
       const sections = [];
-  
-      // Build list of sections from the hrefs (#home, #gallery, #reviews, #location)
+    
       navLinks.forEach(link => {
         const selector = link.getAttribute("href");
         const section = document.querySelector(selector);
@@ -379,17 +371,17 @@
           sections.push({ id: selector, el: section });
         }
       });
-  
+    
       window.addEventListener("scroll", () => {
         let currentId = "";
-  
+    
         sections.forEach(obj => {
-          const sectionTop = obj.el.offsetTop - 150; // adjust offset if needed
+          const sectionTop = obj.el.offsetTop - 150;
           if (window.scrollY >= sectionTop) {
             currentId = obj.id;
           }
         });
-  
+    
         navLinks.forEach(link => {
           link.classList.remove("active");
           if (link.getAttribute("href") === currentId) {
@@ -398,29 +390,76 @@
         });
       });
     </script>
+  
     <script>
+      // ===== Navbar background change on scroll =====
       const header = document.querySelector(".header-taskbar");
     
       window.addEventListener("scroll", () => {
-        if (window.scrollY > 40) { // After 40px scroll
+        if (window.scrollY > 40) {
           header.classList.add("scrolled");
         } else {
           header.classList.remove("scrolled");
         }
       });
     </script>
+  
+    <!-- AOS Animation Script -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
       AOS.init({
-  duration: 500,
-  easing: "ease-out",
-  once: true,
-});
+        duration: 500,
+        easing: "ease-out",
+        once: true,
+      });
     </script>
-    
+  
+    <!-- ===== Image Lightbox ===== -->
+    <div id="lightbox" class="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <img id="lightbox-img" class="lightbox-img" alt="">
+    </div>
+  
+    <script>
+      // ===== Lightbox Logic =====
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const closeBtn = document.querySelector(".lightbox-close");
+  
+      // Attach click to the REAL images, not the divs
+      document.querySelectorAll(".gallery-item img").forEach(image => {
+        image.addEventListener("click", () => {
+          // If the parent .gallery-item is hidden (filtered out), ignore click
+          const parentItem = image.closest(".gallery-item");
+          if (parentItem && parentItem.classList.contains("hidden")) return;
+  
+          lightbox.style.display = "flex";
+          lightboxImg.src = image.src;
+          lightboxImg.alt = image.alt || "";
+        });
+      });
+  
+      // Close when clicking X
+      closeBtn.addEventListener("click", () => {
+        lightbox.style.display = "none";
+        lightboxImg.src = "";
+      });
+  
+      // Close when clicking outside the image
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+          lightbox.style.display = "none";
+          lightboxImg.src = "";
+        }
+      });
+  
+      // Close on ESC key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          lightbox.style.display = "none";
+          lightboxImg.src = "";
+        }
+      });
+    </script>
   </body>
-  </html>
-  
-  
-</body>
 </html>
