@@ -419,7 +419,8 @@ body::before {
   text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
 }
 .sk-ww-google-reviews{
-  height: 450px;
+  height: 400px;
+  width: 350px;
 }
 
 /* Animation for infinite scroll */
