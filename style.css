@@ -27,6 +27,67 @@ body::before {
   background: rgba(0,0,0,0.25);
   z-index: -1;
 }
+/*==================CGPT SUGGESTIONS===================*/
+.hero-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 26px;
+  background: #ffad56;
+  color: black;
+  border-radius: 30px;
+  font-weight: bold;
+  margin-bottom: 200px;
+}
+.hero-btn:hover{
+  background-color: #fff;
+  color: black;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* ===== Floating Book Now (WhatsApp) Button ===== */
+.floating-book {
+  position: fixed;
+  bottom: 70px;
+  right: 24px;
+  width: 62px;
+  height: 62px;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  z-index: 9999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.floating-book:hover {
+  transform: scale(1.1);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45);
+}
+.floating-book,
+.floating-book:hover,
+.floating-book:focus,
+.floating-book:active {
+  text-decoration: none;
+}
+
+
+/* Subtle pulse to attract attention */
+@keyframes whatsappPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+  70% { box-shadow: 0 0 0 18px rgba(64, 145, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.floating-book {
+  animation: whatsappPulse 2.5s infinite;
+}
+
 /* ===== Image Lightbox / Modal ===== */
 
 /* ===== Image Lightbox ===== */
@@ -89,13 +150,17 @@ body.no-scroll {
   background: transparent;
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
+/* Header style AFTER scroll */
 
+.logo-img{
+  width: 120px;
+}
 .task-bar {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 30px;
+  background-color: rgba(159, 140, 115, 0.738);
 }
 .task-bar-list-1{
   text-align: center;
@@ -107,7 +172,6 @@ body.no-scroll {
   list-style: none;
   gap: 3em;
   backface-visibility: hidden;
-  background-color: #c9ab8b42;
   color: black;
   margin-top: 10px;
   padding: 25px 55px;
@@ -117,9 +181,11 @@ body.no-scroll {
 }
 .list-1 {
   color: black;
+  font-size: 23px;
   text-decoration: none;
   position: relative;
   transition: color 0.2s ease;
+  font-weight: 500;
 }
 /* Active link state */
 .list-1.active {
@@ -163,7 +229,17 @@ body.no-scroll {
   opacity: 0.9;
   cursor: pointer;
 }
-
+.header-taskbar.scrolled {
+  background: rgba(20, 20, 20, 0.75);   /* dark glass look */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  border-radius: 5px;
+}
+.header-taskbar.scrolled .task-bar {
+  margin-top: 10px;
+  transition: margin 0.3s ease;
+}
 /* ===== Book Now Button ===== */
 .task-bar-button {
   padding: 15px 25px;
@@ -179,6 +255,12 @@ body.no-scroll {
   color: black;
   cursor: pointer;
 }
+/*=================End of task bar=================*/
+.main-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .farm-name {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
@@ -191,7 +273,6 @@ body.no-scroll {
   text-shadow: 2px 2px 12px rgba(0,0,0,0.4);
   animation: fadeUp 1s ease forwards;
 }
-
 .farm-description {
   font-size: 29px;
   margin-top: 10px;
@@ -202,9 +283,12 @@ body.no-scroll {
   color: #fff;
   text-align: center;
   animation: fadeUp 1.4s ease forwards;
-  margin-left: 500px;
-  margin-bottom: 270px;
 }
+.farm-description {
+  margin: 20px auto 20px;
+  text-align: center;
+}
+
 .welcome-section {
   display: flex;
   flex-direction: row;
@@ -222,7 +306,6 @@ body.no-scroll {
   align-items: center;
   animation: fadeUp 1s ease forwards;
 }
-
 .title-home {
   text-align: center;
   font-size: 42px;
@@ -232,7 +315,6 @@ body.no-scroll {
   font-weight: bold;
   
 }
-
 .home-img {
   width: 500px;
   height: 420px;
@@ -247,18 +329,15 @@ body.no-scroll {
 .home-img:hover {
   transform: scale(1.03);
 }
-
 .home-farm-discription {
   margin-top: 80px;
   font-size: 24px;
   line-height: 1.6;
-  padding-right: 30px;
   animation: fadeUp 1.2s ease forwards;
 }
 .home-farm-discription-3 {
   font-size: 25px;
   line-height: 1.5;
-  padding-right: 30px;
   animation: fadeUp 1.2s ease forwards;
   color: rgba(255, 255, 255, 0.768);
 }
@@ -338,16 +417,12 @@ body.no-scroll {
   transition: opacity 0.6s ease, transform 0.6s ease;
   pointer-events: auto;
 }
-
 .gallery-item.hidden {
   opacity: 0;
   transform: scale(0.9);
   pointer-events: none;
   position: absolute;
 }
-
-
-
 .gallery-item img {
   width: 100%;
   height: 220px;
@@ -355,12 +430,10 @@ body.no-scroll {
   border-radius: 16px;
   transition: transform 0.4s ease;
 }
-
 .gallery-item:hover {
   transform: scale(1.03);
   box-shadow: 0 12px 28px rgba(0,0,0,0.6);
 }
-
 .gallery-item::after {
   content: "";
   position: absolute;
@@ -369,45 +442,15 @@ body.no-scroll {
   opacity: 0;
   transition: opacity 0.4s ease;
 }
-
 .gallery-item:hover::after {
   opacity: 1;
 }
-
 /* Hide items when filtered out */
 .hidden {
   display: none;
 }
-
-/* ===== Footer ===== */
-.about {
-  background-color: black;
-  color: white;
-  text-align: center;
-  padding: 40px 0;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin: 20px auto;
-  font-size: 28px;
-}
-
-.social-icons a {
-  color: white;
-  transition: color 0.3s ease;
-}
-.social-icons a:hover {
-  color: #ffad56;
-}
-
-
-
-
+/*=====================GALLERY ENDS HERE==========================*/
+/*=====================REVIEW STARTA HERE=========================*/
 .reviews {
   background: rgba(0, 0, 0, 0.6);
   border-radius: 16px;
@@ -448,14 +491,7 @@ body.no-scroll {
   }
 }
 
-
-
-
-
-
-
-
-
+/*================LOCATION SECTION STARTS HERE========================*/
 .location-section {
   background: rgba(0, 0, 0, 0.6);
   padding: 60px 20px;
@@ -465,20 +501,17 @@ body.no-scroll {
   color: #fff;
   text-align: center;
 }
-
 .location-section h2 {
   font-size: 42px;
   color: #ffad56;
   margin-bottom: 20px;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
 }
-
 .location-section p {
   font-size: 20px;
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 40px;
 }
-
 .map-container {
   border-radius: 16px;
   overflow: hidden;
@@ -498,66 +531,141 @@ body.no-scroll {
 .directions-btn:hover {
   background: white;
 }
+/*======================LOCATION SECTION ENDS HERE+++=======================*/
+/* ===== Footer ===== */
+.about {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 40px 0;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.footer-contact,
+.footer-address {
+  font-size: 16px;
+  margin: 6px 0;
+  opacity: 0.85;
+}
+
+.footer-contact a {
+  color: #ffad56;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.footer-copy {
+  margin-top: 20px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 20px auto;
+  font-size: 28px;
+}
+.social-icons a {
+  color: white;
+  transition: color 0.3s ease;
+}
+.social-icons a:hover {
+  color: #ffad56;
+}
+/*===================FOOTER ENDS====================================*/
+
+
+
+
+
+
+
+
 
 
 @media (max-width: 992px) {
   .task-bar { 
-    flex-wrap: wrap; 
-    padding: 20px 15px; 
+    padding: 20px 10px; 
     justify-content: center;
     gap: 15px;
     align-items: center;
+  }
+  .list-1{
+    font-size: 20px;
+  }
+  .list-1 img{
+    width: 24px;
+    height: 18px;
+  }
+  .logo-img{
+    width:80px;
   }
   .task-bar-list { 
     margin: 0; 
     gap: 1.5rem; 
     padding: 15px 20px; 
-    font-size: 16px;
+    font-size: 5px;
     width: 100%;
     justify-content: center;
   }
   .task-bar-button { 
     margin: 0; 
     font-size: 16px;
-    padding: 12px 20px;
+    padding: 12px 10px;
     width: auto;
     align-self: center;
   }
 
   .farm-name { font-size: clamp(48px, 10vw, 80px); }
-  .farm-description { margin: 20px auto 80px; display: block; font-size: 22px; }
+  .farm-description { margin: 20px auto 20px; display: block; font-size: 22px; }
   .welcome-section { flex-direction: column; padding: 40px 20px; height: auto; }
   .home-farm-discription { margin-top: 40px; padding: 0 10px; text-align: center; }
 
   .reviews {
-    margin: 20px 15px;
+    margin: 10px 30px;
     padding: 32px 24px;
   }
-  .reviews h3 { font-size: 34px; }
+  .reviews h3 { font-size: 32px; }
   .sk-ww-google-reviews { height: 380px; }
-  .review-track { animation: scrollReviews 10s linear infinite; }
 }
 
 @media (max-width: 576px) {
   .task-bar { 
     padding: 15px 10px; 
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
+  }
+  .logo-img{
+    width: 70px;
   }
   .task-bar-list { 
     gap: 0.8rem; 
-    font-size: 16px; 
-    padding: 12px 15px; 
+    font-size: 5px; 
+    padding: 12px 10px; 
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
   }
   .task-bar-button { 
     width: auto;
-    font-size: 14px;
-    padding: 10px 18px;
+    font-size: 10px;
+    padding: 8px 12px;
     margin-top: 0;
+  }
+  .floating-book {
+    bottom: 20px;
+    right: 16px;
+    width: 56px;
+    height: 56px;
+    font-size: 28px;
   }
   .title-home { font-size: 28px; }
   .home-img { width: 100%; height: auto; margin: 20px 0; }
@@ -568,15 +676,13 @@ body.no-scroll {
   .gallery-item img { height: 180px; }
 
   .reviews {
-    margin: 15px 10px;
+    margin: 20px 30px;
     padding: 24px 18px;
   }
-  .reviews h3 { font-size: 28px; }
+  .reviews h3 { font-size: 24px; }
   .sk-ww-google-reviews { height: 370px; }
   .review-1 { grid-template-columns: 1fr; }
-
   .location-section h2 { font-size: 28px; }
-  .review-track { animation: scrollReviews 6s linear infinite; }
 }
 
 

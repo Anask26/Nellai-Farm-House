@@ -6,23 +6,18 @@
   <title>Nellai Farm House</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-  <link rel="icon" type="image/png" href="review/Gemini_Generated_Image_lhiwe0lhiwe0lhiw.png">
+  <link rel="icon" type="image/png" href="pictures/logo-final-removebg-preview.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/css/glightbox.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup/1.1.0/magnific-popup.min.css">
 </head>
 <body>
 
   <!--===== Header Taskbar =====-->
   <header class="header-taskbar">
     <div class="task-bar">
-      <!-- Logo on the left -->
-      <div></div>
-      <!-- Center nav links -->
+      <div>
+        <img alt="" class="logo-img" src="pictures/logo-final-removebg-preview.png">
+      </div>
       <div class="task-bar-list-1">
         <ol class="task-bar-list">
           <li><a class="list-1" href="#home">Home</a></li>
@@ -49,7 +44,10 @@
   <section  class="main-content">
     <p class="farm-name">Nellai Farm House</p>
     <p class="farm-description">A farmhouse that feels like family.</p>
+    <a href="#gallery" class="hero-btn">Explore Farm</a>
   </section>
+  
+
   <!--===== Main Content End =====-->
 
   
@@ -282,23 +280,38 @@
     <!-- ====== Footer Section ====== -->
     <footer id="about">
       <div class="about">
-        <p>For enquiries, contact us through the platforms below</p>
+        <p class="footer-text">
+          For enquiries, contact us through the platforms below
+        </p>
+    
+        <p class="footer-contact">
+          📞 <a class="footer-number" href="tel:+919524828080">+91 95248 28080</a>
+        </p>
+    
+        <p class="footer-address">
+          📍 Nellai Farm House, Tirunelveli, Tamil Nadu
+        </p>
+    
         <p>Follow us on</p>
+    
         <div class="social-icons">
           <a href="https://www.instagram.com/nellaifarmhouse?igsh=dXlqanlpNThiZGI4" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="mailto:nellaifarmhouse05@gmail.com" rel="noopener noreferrer" aria-label="Gmail" target="_blank">
+          <a href="mailto:nellaifarmhouse05@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email">
             <i class="fas fa-envelope"></i>
-          </a>
           </a>
           <a href="https://wa.me/9524828080" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
             <i class="fab fa-whatsapp"></i>
           </a>
         </div>
-        <p>&copy; 2025 Nellai Farm House | All Rights Reserved</p>
+    
+        <p class="footer-copy">
+          &copy; <span id="year"></span> Nellai Farm House | All Rights Reserved
+        </p>
       </div>
     </footer>
+    
 
 
 
@@ -481,5 +494,14 @@
         }
       });
     </script>
+    <a
+    href="https://wa.me/919524828080?text=Hello!%20I%20am%20interested%20in%20booking%20Nellai%20Farm%20House."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="floating-book"
+    aria-label="Book Now on WhatsApp"
+  >
+    <i class="fab fa-whatsapp"></i>
+  </a>
   </body>
 </html>
