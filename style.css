@@ -719,7 +719,7 @@ body.no-scroll {
 }
  
 /* For screens 425px and below - This should override 576px styles */
-@media (max-width: 430px) {
+@media (max-width: 460px) {
   .task-bar { 
     padding: 10px 8px; 
     display: flex;
@@ -741,7 +741,7 @@ body.no-scroll {
     margin:0px 15px 0px 15px ;
   }
   .list-1{
-    font-size: 15px;
+    font-size: 10px;
   }
   .task-bar-button { 
     width: auto;
@@ -750,7 +750,7 @@ body.no-scroll {
     margin-top: 0;
   }
   .list-1 img{
-    width: 20px;
+    width: 40px;
     height: 16px;
     margin-right: 15px;
   }
@@ -758,29 +758,42 @@ body.no-scroll {
   .farm-description { margin: 20px auto 240px; display: block; font-size: 18px; }
 }
 
- 
-@media (max-width: 320px) {
+@media (max-width: 400px) {
   .task-bar { 
     padding: 8px 6px; 
     gap: 3px;
   }
   .logo-img{
-    width: 48px;
+    width: 50px;
   }
   .task-bar-list { 
     gap: 0.35rem; 
     padding: 6px 4px; 
   }
   .list-1{
-    font-size: 10px;
+    font-size: 12px;
   }
   .list-1 img{
-    width: 14px;
-    height: 12px;
+    width: 18px;
+    height: 16px;
   }
   .task-bar-button { 
-    font-size: 10px;
-    padding: 5px 8px;
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  .floating-book {
+    bottom: 20px;
+    right: 16px;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+  .floating-instagram {
+    bottom: 78px;
+    right: 16px;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
   }
 }
 
