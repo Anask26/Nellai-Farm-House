@@ -684,8 +684,8 @@ body.no-scroll {
   .review-1 { grid-template-columns: 1fr; }
   .location-section h2 { font-size: 28px; }
 }
-/* Extra-small phones (like Vivo Y200e ~360px wide) */
-@media (max-width: 400px) {
+ 
+@media (max-width: 420px) {
   .task-bar { 
     padding: 10px 8px; 
     display: flex;
@@ -718,7 +718,7 @@ body.no-scroll {
   }
 }
 
-/* Very small phones (<= 320px) */
+ 
 @media (max-width: 320px) {
   .task-bar { 
     padding: 8px 6px; 
@@ -743,6 +743,7 @@ body.no-scroll {
     padding: 5px 8px;
   }
 }
+
 
 
 
