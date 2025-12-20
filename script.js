@@ -1,3 +1,4 @@
+
 // ===== Initialize all functionality when DOM is ready =====
 function initAll() {
   // ===== Gallery Filter Logic =====
@@ -198,9 +199,11 @@ function initLightbox() {
 }
 
 // Initialize lightbox when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initLightbox);
-} else {
-  // DOM is already loaded
-  initLightbox();
+function showSidebar(){
+  const sidebar = document.querySelector('.sidebar')
+  sidebar.style.display='flex'
+}
+function hideSidebar(){
+  const sidebar = document.querySelector('.sidebar')
+  sidebar.style.display='none'
 }

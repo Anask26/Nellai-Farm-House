@@ -27,11 +27,342 @@ body::before {
   background: rgba(0,0,0,0.25);
   z-index: -1;
 }
+/* ===== Navbar / Task Bar ===== */
+/* Transparent by default */
+.header-taskbar {
+  position: sticky;
+  background-color: black;
+  top: 0;
+  z-index: 1000;
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.task-bar-list-1{
+  text-align: center;
+  margin-right: 0;
+}
+.task-bar-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(159, 140, 115, 0.738);
+  list-style: none;
+  gap: 2em;
+  backface-visibility: hidden;
+  color: black;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  padding: 10px 12px;
+}
+.header-taskbar.task-bar-list.scrolled {
+  background: rgba(20, 20, 20, 0.75);   /* dark glass look */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  border-radius: 5px;
+}
+.header-taskbar.task-bar-list.scrolled .task-bar {
+  margin-top: 10px;
+  transition: margin 0.3s ease;
+}
+/* ===== Book Now Button ===== */
+.task-bar-button {
+  display:inline-block;
+  background-color: #ffad56;
+  padding: 12px 15px;
+  border-radius: 12px;
+}
+.task-bar-button::after,
+.task-bar-button::before {
+  display: none !important;
+  content: none !important;
+}
+/* Remove underline from parent li if it contains task-bar-button */
+.hideOnMobile:has(.task-bar-button)::after {
+  display: none !important;
+}
+/* Fallback for browsers without :has() support - target the li containing the button */
+li:has(.task-bar-button)::after {
+  display: none !important;
+}
+.task-bar-button:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+nav{
+  background-color: rgba(159, 140, 115, 0.738);
+}
+nav ul{
+  position: sticky;
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+nav li{
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+nav li img{
+  width: 120px;
+}
+nav a{
+  height: 80%;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+nav li:first-child{
+  margin-right: auto;
+}
+.sidebar{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
+  color: black;
+  background-color: rgba(89, 42, 0, 0.936);
+  box-shadow: #f0f0f0;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.sidebar li{
+  width: 50%;
+  height: 30%;
+  margin-left: 15px;
+  font-size: 22px;
+  font-weight: 550;
+}
+.sidebar li:hover{
+  background-color: #926767b6;
+  color: #f09433;
+}
+.sidebar.task-bar-button{
+  font-size: 18px;
+  margin: 0;
+  height: auto;
+  text-align: center;
+}
+.sidebar a{
+  width: 100%;
+}
+.menu-button{
+  display: none;
+}
+.hideOnMobile{
+  color: black;
+  font-size: 23px;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  transition: color 0.2s ease;
+  font-weight: 500;
+}
+.hideOnMobile.active{
+  color: #ffffff;
+}
+.hideOnMobile::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+.hideOnMobile.active::after{
+  width: 100%;
+}
+.hideOnMobile:hover::after{
+  width: 100%;
+}
+.hideOnMobile:hover{
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+/* ================= SIDEBAR STYLING ================= */
+
+/* Sidebar container */
+.sidebar {
+  padding-top: 20px;
+}
+
+/* Sidebar list items */
+.sidebar li {
+  width: 100%;
+  margin: 0;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 8px;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+.sidebar a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(4px);
+}
+
+/* Logo inside sidebar */
+.sidebar li img {
+  width: 120px;
+  margin: 10px auto 20px;
+  display: block;
+}
+
+/* Divider look (optional but nice) */
+.sidebar li:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ===== Sidebar Book Now Button ===== */
+.sidebar .task-bar-button {
+  margin: 16px auto;
+  width: 85%;
+  height: 42px;
+  font-size: 16px;
+  border-radius: 22px;
+  background-color: #ffad56;
+  color: #000;
+  font-weight: 600;
+  justify-content: center;
+}
+
+/* Hover for Book Now */
+.sidebar .task-bar-button:hover {
+  background-color: #fff;
+  color: #000;
+}
+/* ================= SIDEBAR HOVER EFFECTS ================= */
+
+/* Smooth entrance feel */
+.sidebar a {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background glow hover */
+.sidebar a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 173, 86, 0.25)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.sidebar a:hover::before {
+  opacity: 1;
+}
+
+/* Slide + scale on hover */
+.sidebar a:hover {
+  transform: translateX(6px) scale(1.02);
+}
+
+/* Tap / click feedback */
+.sidebar a:active {
+  transform: scale(0.97);
+}
+
+/* Icon animation inside sidebar */
+.sidebar a svg {
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.sidebar a:hover svg {
+  transform: scale(1.15);
+  fill: #ffad56;
+}
+
+/* ================= BOOK NOW SPECIAL EFFECT ================= */
+
+.sidebar .task-bar-button {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Pulse glow */
+.sidebar .task-bar-button::after {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.35), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.sidebar .task-bar-button:hover::after {
+  opacity: 1;
+}
+
+/* Lift on hover */
+.sidebar .task-bar-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
+}
+
+/* Press feedback */
+.sidebar .task-bar-button:active {
+  transform: scale(0.95);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ===== Floating Book Now (WhatsApp) Button ===== */
 .floating-book {
   position: fixed;
-  bottom: 130px;
+  bottom: 30px;
   right: 24px;
   width: 62px;
   height: 62px;
@@ -74,7 +405,7 @@ body::before {
 /* ===== Floating Instagram Button ===== */
 .floating-instagram {
   position: fixed;
-  bottom: 208px;
+  bottom: 108px;
   right: 24px;
   width: 62px;
   height: 62px;
@@ -166,120 +497,7 @@ body.no-scroll {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* ===== Navbar / Task Bar ===== */
-/* Transparent by default */
-.header-taskbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: transparent;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-/* Header style AFTER scroll */
 
-.logo-img{
-  width: 120px;
-}
-.task-bar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba(159, 140, 115, 0.738);
-}
-.task-bar-list-1{
-  text-align: center;
-  margin-right: 0;
-}
-.task-bar-list {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  gap: 3em;
-  backface-visibility: hidden;
-  color: black;
-  margin-top: 10px;
-  padding: 25px 55px;
-  border-radius: 12px;
-  font-size: 20px;
-  transition: all 0.3s ease;
-}
-.list-1 {
-  color: black;
-  font-size: 23px;
-  text-decoration: none;
-  position: relative;
-  transition: color 0.2s ease;
-  font-weight: 500;
-}
-/* Active link state */
-.list-1.active {
-  color: #ffffff;
-}
-.list-1::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background-color: white;
-  transition: width 0.3s ease;
-}
-.list-1.active::after {
-  width: 100%;
-}
-.list-1 img {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-}
-
-.list-1::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background-color: white;
-  transition: width 0.3s ease;
-}
-
-.list-1:hover::after {
-  width: 100%;
-}
-
-.list-1:hover {
-  opacity: 0.9;
-  cursor: pointer;
-}
-.header-taskbar.scrolled {
-  background: rgba(20, 20, 20, 0.75);   /* dark glass look */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-  border-radius: 5px;
-}
-.header-taskbar.scrolled .task-bar {
-  margin-top: 10px;
-  transition: margin 0.3s ease;
-}
-/* ===== Book Now Button ===== */
-.task-bar-button {
-  padding: 15px 25px;
-  border: none;
-  border-radius: 36px;
-  font-size: 20px;
-  background-color: #7b3f00f9;
-  transition: all 0.3s ease;
-  color: white;
-}
-.task-bar-button:hover {
-  background-color: white;
-  color: black;
-  cursor: pointer;
-}
 /*=================End of task bar=================*/
 .main-content{
   display: flex;
@@ -660,7 +878,14 @@ body.no-scroll {
   .reviews h3 { font-size: 32px; }
   .sk-ww-google-reviews { height: 380px; }
 }
-
+@media(max-width:800px) {
+  .hideOnMobile{
+    display: none;
+  }
+  .menu-button{
+    display: block;
+  }
+}
 @media (max-width: 576px) {
   .task-bar { 
     padding: 15px 10px; 
@@ -717,7 +942,11 @@ body.no-scroll {
   .review-1 { grid-template-columns: 1fr; }
   .location-section h2 { font-size: 28px; }
 }
- 
+@media(max-width:400){
+  .sidebar{
+    width: 100%;
+  }
+}
 /* For screens 425px and below - This should override 576px styles */
 @media (max-width: 460px) {
   .task-bar { 
@@ -730,7 +959,7 @@ body.no-scroll {
     /* background-color: rgba(255, 0, 0, 0.2) !important; */
   }
   .logo-img{
-    width: 50px;
+    width: 58px;
   }
   .task-bar-list { 
     gap: 0.5rem; 
@@ -741,7 +970,7 @@ body.no-scroll {
     margin:0px 15px 0px 15px ;
   }
   .list-1{
-    font-size: 10px;
+    font-size: 15px;
   }
   .task-bar-button { 
     width: auto;
@@ -750,8 +979,8 @@ body.no-scroll {
     margin-top: 0;
   }
   .list-1 img{
-    width: 40px;
-    height: 16px;
+    width: 24px;
+    height: 15px;
     margin-right: 15px;
   }
   .farm-name { font-size: clamp(40px, 8vw, 60px);margin-top: 140px; }
