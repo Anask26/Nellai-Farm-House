@@ -191,10 +191,6 @@ nav li:first-child{
   opacity: 0.9;
   cursor: pointer;
 }
-
-/* ================= SIDEBAR STYLING ================= */
-
-/* Sidebar container */
 .sidebar {
   padding-top: 20px;
 }
@@ -331,33 +327,6 @@ nav li:first-child{
 .sidebar .task-bar-button:active {
   transform: scale(0.95);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* ===== Floating Book Now (WhatsApp) Button ===== */
@@ -968,7 +937,7 @@ body.no-scroll {
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
-    margin:0px 15px 0px 15px ;
+    margin:0;
   }
   .list-1{
     font-size: 15px;
