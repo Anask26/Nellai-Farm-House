@@ -52,7 +52,7 @@ body::before {
   color: black;
   font-size: 20px;
   transition: all 0.3s ease;
-  padding: 10px 12px;
+
 }
 .header-taskbar.task-bar-list.scrolled {
   background: rgba(20, 20, 20, 0.75);   /* dark glass look */
@@ -93,6 +93,7 @@ li:has(.task-bar-button)::after {
 }
 nav{
   background-color: rgba(159, 140, 115, 0.738);
+  
 }
 nav ul{
   position: sticky;
