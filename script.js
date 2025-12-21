@@ -1,4 +1,3 @@
-
 // ===== Initialize all functionality when DOM is ready =====
 function initAll() {
   // ===== Gallery Filter Logic =====
