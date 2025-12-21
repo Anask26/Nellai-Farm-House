@@ -198,6 +198,12 @@ function initLightbox() {
 }
 
 // Initialize lightbox when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initLightbox);
+} else {
+  initLightbox();
+}
+
 function showSidebar(){
   const sidebar = document.querySelector('.sidebar')
   sidebar.style.display='flex'
@@ -205,4 +211,29 @@ function showSidebar(){
 function hideSidebar(){
   const sidebar = document.querySelector('.sidebar')
   sidebar.style.display='none'
+}
+
+// Auto-close sidebar when clicking on sidebar links
+function initSidebarAutoClose() {
+  const sidebar = document.querySelector('.sidebar');
+  if (!sidebar) return;
+
+  // Get all links in the sidebar
+  const sidebarLinks = sidebar.querySelectorAll('a');
+  
+  sidebarLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // Close sidebar after a short delay to allow smooth scroll to work
+      setTimeout(() => {
+        hideSidebar();
+      }, 300);
+    });
+  });
+}
+
+// Initialize sidebar auto-close when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSidebarAutoClose);
+} else {
+  initSidebarAutoClose();
 }

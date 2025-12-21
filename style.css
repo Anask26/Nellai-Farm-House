@@ -961,8 +961,8 @@ body.no-scroll {
     height: 15px;
     margin-right: 15px;
   }
-  .farm-name { font-size: clamp(40px, 8vw, 60px);margin-top: 80px; }
-  .farm-description { margin: 20px auto 180px; display: block; font-size: 18px; }
+  .farm-name { font-size: clamp(40px, 8vw, 60px);margin-top: 70px; }
+  .farm-description { margin: 20px auto 150px; display: block; font-size: 18px; }
 }
 
 @media (max-width: 400px) {
