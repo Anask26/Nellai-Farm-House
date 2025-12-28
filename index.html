@@ -49,7 +49,11 @@
       </li>
         <li><a rel="noopener noreferrer" href="https://wa.me/919524828080?text=Hello!%20I%20am%20interested%20in%20booking%20Nellai%20Farm%20House.%0A%0AKindly%20provide%20availability%20and%20package%20details.%0A%0ADate:%0ANo.%20of%20persons:%0ADay%20outing%20/%20Night%20stay:" 
           target="_blank" 
-          class="task-bar-button">
+          class="task-bar-button"
+          onclick="gtag('event', 'whatsapp_click', {
+            'event_category': 'engagement',
+            'event_label': 'Book Now Button'
+          });">
           Book Now
           </a>
         </li>
@@ -327,6 +331,10 @@
     target="_blank"
     rel="noopener noreferrer"
     class="floating-book"
+    onclick="gtag('event', 'whatsapp_click', {
+      'event_category': 'engagement',
+      'event_label': 'Book Now Button'
+    });"
     aria-label="Book Now on WhatsApp"
   >
     <i class="fab fa-whatsapp"></i>
