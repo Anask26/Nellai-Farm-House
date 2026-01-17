@@ -378,7 +378,7 @@ nav li:first-child{
 /* ===== Floating Instagram Button ===== */
 .floating-instagram {
   position: fixed;
-  bottom: 108px;
+  bottom: 128px;
   right: 24px;
   width: 62px;
   height: 62px;
